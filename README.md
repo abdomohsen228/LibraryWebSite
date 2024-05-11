@@ -1,0 +1,1 @@
+This project is an online bookstore developed using Python with the Django framework. It aims to provide a comprehensive platform for users to browse, search, and purchase books across a variety of genres and categories. This website features a user-friendly interface, robust search functionalitygration.
