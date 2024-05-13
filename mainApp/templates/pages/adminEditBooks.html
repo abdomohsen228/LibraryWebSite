@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Online Book Library</title>
+        <meta name="title" content="Online Book Library">
+        <meta name="description" content="Online Book Library">
+    
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+    
+        <link rel="stylesheet" href="{% static 'css/adminEdit.css' %}">
+        
+    </head>
+<body>
+    {# Include header file #}
+    {% include 'header.html' %}
+<!-- main content -->
+<main class="mainmain">
+    <article>
+        <section class="hero">
+            <div class="container">
+
+                <div class="hero-content">
+                    <h1 class="headline-large hero-title">Find a place where you can be yourself.</h1>
+                    <p class="body-large hero-text">
+                        Hi admin lets do your best in our Website lets make some fine this is the Edit page do your best 
+                    </p>
+                    <form  method="get" class="search-bar">
+                        <label class="search-item">
+                            <span class="label-medium label">Book</span>
+                            <input type="text" name="location" id="searchInput" placeholder="title,author..." class="search-item-field body-medium" onkeyup="searchDate(this.value)">
+                        </label>
+                        <button type="submit"  id="searchTitle" class="search-btn">
+                            <span class="material-symbols-rounded" aria-hidden="true">search</span>
+                            <span class="label-medium">Search</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section property" aria-labelledby="Property-label">
+            <div class="container">
+                <div id="card-container" class="property-list">
+                     
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+<!-- footer -->
+{% include 'footer.html' %}
+
+<link rel="stylesheet" href="{% static 'js/searchingOpertaionEdit.js' %}">
+</body>
+</html>

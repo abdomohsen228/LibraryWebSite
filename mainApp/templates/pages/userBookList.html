@@ -1,0 +1,64 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static '/css/normalize.css' %} ">
+    <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static '/css/yourBooks.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>user book List</title>
+</head>
+<body>
+  <div class="body-color">
+    {# Include header file #}
+    {% include 'header.html' %}
+<div class="overlay"></div>
+<div class="content-all">
+                    <h2>Borrowed Books</h2>
+                    <ul>
+                        <div class="holder">
+                        <!-- <div class="imgs">
+                            <li>Tenth of December</li>
+                            <img height="100" src="imgs/81-y8fgFTTL._AC_UF1000,1000_QL80_.jpg" alt="">
+                        </div>
+                        <div class="imgs">
+                            <li>The Remains of the Day</li>
+                            <img height="100" src="imgs/71FYHIsnVIL._AC_UF1000,1000_QL80_.jpg" alt="">
+
+                        </div>
+                        
+                        <div class="imgs">
+                                            <li>Things Fall Apart</li>
+                                            <img height="100" src="imgs/91NtvTU0xEL._AC_UF1000,1000_QL80_.jpg" alt="">
+                                        </div>
+                                        <div class="imgs">
+                                            <li>Dear Life</li>
+                                            <img height="100" src="imgs/images.jpg" alt="">
+                                        </div>
+                                        <div class="imgs">
+                                            <li>A Tale for the Time Being</li>
+                                            <img height="100" src="imgs/15811545.jpg" alt="">
+                                        </div>
+                                        <div class="imgs">
+                                            <li>Echoes of Eternity</li>
+                                            <img height="100" src="imgs/image.png" alt="">
+                                        </div> -->
+                                        
+                                    </div>
+                                    </ul>
+                                   </div>
+                                </div>
+                                
+                                
+                            <!-- footer -->
+                            {% include 'footer.html' %}
+
+                            <script src="{% static 'selection.js' %}"></script>
+                        </body>
+                        </html>

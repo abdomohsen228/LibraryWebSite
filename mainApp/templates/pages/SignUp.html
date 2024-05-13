@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>book store</title>
+    <meta name="description" content="This is our book store" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cairo:wght@300;400;700&family=Open+Sans:wght@400;700&display=swap');
+</style>
+</head>
+<body style="background-image: url(imgs/ryunosuke-kikuno-FKqxZ58bVjU-unsplash.jpg);"> 
+
+
+    {# Include header file #}
+    {% include 'header.html' %}
+    
+    <div class="signup-style">
+        <h1>REGISTER NOW</h1>
+        <form >
+            <input type="text" required placeholder="Username" id="Username">
+            <input type="password" required placeholder="Password" minlength="10" maxlength="20" id="password">
+            <input type="password" onclick="check()" required placeholder="Confirm Password" minlength="10" maxlength="20" id="confirm_password">
+            <span id="error" style="color: rgb(0, 0, 0); visibility: hidden;">Passwords do not match!</span>
+            
+            <input type="email" required placeholder="Write a valid Email" id="email">
+            
+            <label for="register"></label>
+            <select name="user" id="type">
+                <option value="1">User</option>
+                <option value="2">Admin</option>
+            </select>
+            
+            <button onclick="check()" id="submit">Register Now</button> 
+        </form>
+        <p >Already have an account? <a  href="login.html">Login now</a></p>
+    </div>
+
+        <!-- footer -->
+        {% include 'footer.html' %}
+
+        <link rel="stylesheet" href="{% static '/js/mainUser.js' %}">
+    </body>
+</html>
