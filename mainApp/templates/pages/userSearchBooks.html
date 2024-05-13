@@ -50,26 +50,27 @@
         <section class="section property" aria-labelledby="Property-label">
             <div class="container">
                 <div id="card-container" class="property-list">
-                        <!-- <div class="card">
-                            <div class="card-banner">
-                                <figure class="img-holder" style="--width:250; --height:300;">
-                                    <img src="imgs/images.jpg" width="250" height="300" alt="Dear Life" class="img-cover">
-                                </figure>
-                                <button class="icon-btn fav-btn " aria-label="add to favorite">
-                                    <span class="material-symbols-rounded" aria-hidden="true">favorite</span>
-                                </button>
-                            </div>
-                            <div class="card-content">
-                                <span class="author">Rachel Clarke</span>
-                                <h3 class="title-small card-title">
-                                    <a href="#" class="title-small card-title">Dear Life</a>
-                                </h3>
-                                <address class="body-medium card-text">
-                                    
-                                    "Dear Life" offers a poignant exploration of human experience through a collection of short stories, delving into themes of love, loss, and resilience, all while reflecting on the complexities of existence and the passage of time. Alice Munro's masterful storytelling invites readers into the intimate lives of her characters, weaving together narratives that resonate with profound emotional depth and universal truths.
-                                </address>
-                            </div>
-                        </div> -->
+                    {% for book in books %}
+                    <div class="card">
+                        <div class="card-banner">
+                            <figure class="img-holder" style="--width:250; --height:300;">
+                                <img src="{{book.image.url}}" width="250" height="300" alt="{{book.title}}" class="img-cover">
+                            </figure>
+                            <button class="icon-btn fav-btn " aria-label="add to favorite">
+                                <span class="material-symbols-rounded" aria-hidden="true">favorite</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <span class="author">{{book.author}}</span>
+                            <h3 class="title-small card-title">
+                                <a href="#" class="title-small card-title">{{book.title}}</a>
+                            </h3>
+                            <address class="body-medium card-text">
+                                {{book.details}}                                    
+                            </address>
+                        </div>
+                    </div>
+                    {%endfor%}
                 </div>
             </div>
 
@@ -87,5 +88,12 @@
 {% include 'footer.html' %}
 
         <script src="{% static '/js/searchingOpertaions.js' %} "></script> 
+        <script>
+            const $navbar =document.querySelector("[data-navbar]");
+const $navToggler =document.querySelector("[data-nav-toggler]");
+$navToggler.addEventListener("click",()=> $navbar.classList.toggle("active"));
+
+
+        </script>
 </body>
 </html>

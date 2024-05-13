@@ -4,7 +4,10 @@ from .models import *
 # Create your views here.
 # user functions
 def User_Home(request):
-    return render(request, 'pages/User_Home.html')
+    context={
+        'books': Book.objects.all(),
+    }
+    return render(request, 'pages/User_Home.html',context)
 
 
 def template(request):
@@ -17,7 +20,10 @@ def userBorrowBook(request):
     return render(request, 'pages/userBorrowBook.html')
 
 def userSearchBooks(request):
-    return render(request, 'pages/userSearchBooks.html')
+    context={
+        'books': Book.objects.all(),
+    }
+    return render(request, 'pages/userSearchBooks.html',context)
 
 
 def userViewList(request):

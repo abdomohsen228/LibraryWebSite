@@ -26,6 +26,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     image = models.ImageField(upload_to='photo', blank=True, null=True)
+    details = models.TextField(null=True,blank=True)
     available = models.BooleanField(default=True)
     category = models.CharField(max_length=100, choices=BOOK_CATEGORIES)
 

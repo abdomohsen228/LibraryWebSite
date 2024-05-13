@@ -20,16 +20,16 @@
     <header>    
         <div class="container">
             <a href="#" class="logo">
-                <img style="width: 200px; height: 100px;" decoding="async" src="imgs//amino.png" alt="Logo" />
+                <img style="width: 200px; height: 100px;" decoding="async" src="{% static 'images/amino.png' %}" alt="Logo" />
             </a>
             <nav>
                 <i class="fas fa-bars toggle-menu"></i>
             <ul>
-                <li><a  href="User_Home.html">Home</a></li>
-                <li><a href="userSearchBooks.html">Search</a></li>
-                <li><a href="userViewList.html">View List</a></li>
-                <li><a href="userBorrowBook.html">Borrow Books</a></li>
-                <li><a href="userBookList.html">Your Book</a></li>
+                <li><a  href="{% url 'User_Home' %}">Home</a></li>
+                <li><a href="{% url 'userSearchBooks' %}">Search</a></li>
+                <li><a href="{% url 'userViewList' %}">View List</a></li>
+                <li><a href="{% url 'userBorrowBook' %}">Borrow Books</a></li>
+                <li><a href="{% url 'userBookList' %}">Your Book</a></li>
                 <li><a href="login.html">Log out</a></li>
             </ul>
             <div class="form">
