@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import *
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -30,10 +30,9 @@ class UserSignupForm(forms.ModelForm):
         user.set_password(self.cleaned_data['password'])
         if commit:
             user.save()
-            user_profile = UserProfile.objects.create(
-                user=user,
-                is_admin=self.cleaned_data.get('is_admin')
-            )
+            user_profile, created = UserProfile.objects.get_or_create(user=user)
+            user_profile.is_admin = self.cleaned_data.get('is_admin', False)
+            user_profile.save()
         return user
 
 class LoginForm(AuthenticationForm):
@@ -51,3 +50,15 @@ class LoginForm(AuthenticationForm):
             'style': 'width: 100%; color: white; background: transparent; border: 1px solid white;'
         })
     )
+
+class AddBookForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['book_list']
+        widgets = {
+            'book_list': forms.CheckboxSelectMultiple
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(AddBookForm, self).__init__(*args, **kwargs)
+        self.fields['book_list'].queryset = Book.objects.filter(available=True)

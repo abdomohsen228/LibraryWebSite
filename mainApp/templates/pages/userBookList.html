@@ -23,42 +23,17 @@
                     <h2>Borrowed Books</h2>
                     <ul>
                         <div class="holder">
-                        <!-- <div class="imgs">
-                            <li>Tenth of December</li>
-                            <img height="100" src="imgs/81-y8fgFTTL._AC_UF1000,1000_QL80_.jpg" alt="">
+                    {% for books in book%}
+                     <div class="imgs">
+                            <li>{{book.title}}</li>
+                            <img height="100" src="{{book.image}}" alt="">
                         </div>
-                        <div class="imgs">
-                            <li>The Remains of the Day</li>
-                            <img height="100" src="imgs/71FYHIsnVIL._AC_UF1000,1000_QL80_.jpg" alt="">
-
-                        </div>
-                        
-                        <div class="imgs">
-                                            <li>Things Fall Apart</li>
-                                            <img height="100" src="imgs/91NtvTU0xEL._AC_UF1000,1000_QL80_.jpg" alt="">
-                                        </div>
-                                        <div class="imgs">
-                                            <li>Dear Life</li>
-                                            <img height="100" src="imgs/images.jpg" alt="">
-                                        </div>
-                                        <div class="imgs">
-                                            <li>A Tale for the Time Being</li>
-                                            <img height="100" src="imgs/15811545.jpg" alt="">
-                                        </div>
-                                        <div class="imgs">
-                                            <li>Echoes of Eternity</li>
-                                            <img height="100" src="imgs/image.png" alt="">
-                                        </div> -->
-                                        
-                                    </div>
-                                    </ul>
-                                   </div>
+                        {%endfor%}
                                 </div>
                                 
                                 
                             <!-- footer -->
                             {% include 'footer.html' %}
 
-                            <script src="{% static 'selection.js' %}"></script>
                         </body>
                         </html>

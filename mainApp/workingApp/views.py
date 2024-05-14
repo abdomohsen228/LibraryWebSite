@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect
+
 from .forms import *
 
 
@@ -39,10 +40,25 @@ def template(request):
     return render(request, 'pages/template.html')
 
 def userBookList(request):
-    return render(request, 'pages/userBookList.html')
+    context={
+        'books': Book.objects.all(),
+    }
+    return render(request, 'pages/userBookList.html',context)
 
 def userBorrowBook(request):
-    return render(request, 'pages/userBorrowBook.html')
+    context={
+        'books': Book.objects.all(),
+    }
+    if request.method == 'POST':
+        form = AddBookForm(request.POST, instance=request.user.userprofile)
+        if form.is_valid():
+            form.save()
+            return redirect('userBorrowBook')  # Redirect to a new URL
+    else:
+        form = AddBookForm(instance=request.user.userprofile)
+
+    return render(request, 'pages/userBorrowBook.html', {'form': form},context)
+
 
 def userSearchBooks(request):
     context={
