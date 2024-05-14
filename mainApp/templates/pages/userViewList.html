@@ -34,136 +34,25 @@
                         <th>Title</th>
                         <th>Author</th>
                         <th>History of borrowing</th>
+                        <th>Available</th>
                         <th>Category</th>
                     </tr>
+                    {% for book in books %}
                     <tbody id="tbody">
                         <tr>
-                            <td>1</td>
-                            <td>The Book Thief</td>
-                            <td>Markus Zusak</td>
-                            <td>22/8/2023</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Memoirs of a Geisha</td>
-                            <td>Arthur Golden</td>
-                            <td>12/10/2023</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>All the Light We Cannot See</td>
-                            <td>Anthony Doerr</td>
-                            <td>15/10/2023</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Outlander</td>
-                            <td>Diana Gabaldon</td>
-                            <td>15/11/2023</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>The Red Tent</td>
-                            <td>Anita Diamant</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>To Kill a Mockingbird</td>
-                            <td>Harper Lee</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>"1984"</td>
-                            <td>George Orwell</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Harry Potter and the Sorcerer's Stone</td>
-                            <td>J.K. Rowling</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>The Hunger Games</td>
-                            <td> Suzanne Collins</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>The Da Vinci Code</td>
-                            <td> Dan Brown</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>The Red Tent</td>
-                            <td>Anita Diamant</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Gone with the Wind</td>
-                            <td>Margaret Mitchell</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td>The Chronicles of Narnia</td>
-                            <td>C.S. Lewis</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td>The Red Tent</td>
-                            <td>Anita Diamant</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td>The Kite Runne</td>
-                            <td>Khaled Hosseini</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td>The Alchemist</td>
-                            <td>Paulo Coelho</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td>The Adventures of Huckleberry Finn</td>
-                            <td>Mark Twain</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
-                        </tr>
-                        <tr>
-                            <td>18</td>
-                            <td>The Picture of Dorian Gray</td>
-                            <td>Oscar Wilde</td>
-                            <td>1/1/2024</td>
-                            <td>historic</td>
+                            <td>{{book.id}}</td>
+                            <td>{{book.title}}</td>
+                            <td>{{book.author}}</td>
+                            {% if book.borrowingDate %}
+                            <td>{{ book.borrowingDate|date:"d/m/Y" }}</td>
+                        {% else %}
+                            <td>-----</td>
+                        {% endif %}
+                            <td>{{book.available}}</td>
+                            <td>{{book.category}}</td>
                         </tr>
                     </tbody>
+                    {% endfor %}
                 </table>
             </div>
             
