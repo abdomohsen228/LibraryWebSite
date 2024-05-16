@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404,redirect
 from .models import *
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect
+from django.db.models import Q
+from django.http import JsonResponse
 
 from .forms import *
 
@@ -32,6 +34,7 @@ def user_login(request):
 def User_Home(request):
     context={
         'books': Book.objects.all(),
+        'user': request.user
     }
     return render(request, 'pages/User_Home.html',context)
 
@@ -40,32 +43,77 @@ def template(request):
     return render(request, 'pages/template.html')
 
 def userBookList(request):
-    context={
-        'books': Book.objects.all(),
+    # Get the UserProfile of the logged-in user
+    user_profile = UserProfile.objects.get(user=request.user)
+    # Filter books associated with this user's profile
+    books = user_profile.book_list.all()
+
+    context = {
+        'books': books,
     }
-    return render(request, 'pages/userBookList.html',context)
+    return render(request, 'pages/userBookList.html', context)
 
 def userBorrowBook(request):
-    context={
-        'books': Book.objects.all(),
-    }
     if request.method == 'POST':
-        form = AddBookForm(request.POST, instance=request.user.userprofile)
-        if form.is_valid():
-            form.save()
-            return redirect('userBorrowBook')  # Redirect to a new URL
+        book_id = request.POST.get('borrow')
+        if book_id:
+            book = get_object_or_404(Book, id=book_id)
+            user_profile = UserProfile.objects.get(user=request.user)
+            if book not in user_profile.book_list.all():
+                user_profile.book_list.add(book)
+                user_profile.save()
+                return redirect('userBookList')  
+            else:
+                context = {
+                    'books': Book.objects.all(),
+                    'error': 'You have already borrowed this book.'
+                }
+                return render(request, 'pages/userBorrowBook.html', context)
     else:
-        form = AddBookForm(instance=request.user.userprofile)
-
-    return render(request, 'pages/userBorrowBook.html', {'form': form},context)
-
+        context = {
+            'books': Book.objects.all(),
+        }
+        return render(request, 'pages/userBorrowBook.html', context)
 
 def userSearchBooks(request):
-    context={
-        'books': Book.objects.all(),
+    query = request.GET.get('query', '')
+    books = Book.objects.filter(
+        Q(title__icontains=query) |
+        Q(author__icontains=query) 
+    ) if query else Book.objects.all()
+    
+    context = {
+        'books': books,
+        'query': query
     }
-    return render(request, 'pages/userSearchBooks.html',context)
+    return render(request, 'pages/userSearchBooks.html', context)
 
+def ajax_search_books(request):
+    query = request.GET.get('query', '')
+    books = Book.objects.filter(
+        Q(title__icontains=query) |
+        Q(author__icontains=query) 
+    ) if query else Book.objects.all()
+
+    results = []
+    for book in books:
+        results.append({
+            'id': book.id,
+            'title': book.title,
+            'author': book.author,
+            'details': book.details,
+            'image': book.image.url  # Add the image URL
+        })
+    
+    return JsonResponse({'books': results})
+
+
+def template(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    context = {
+        'book': book,
+    }
+    return render(request, 'pages/template.html', context)
 
 def userViewList(request):
     context={

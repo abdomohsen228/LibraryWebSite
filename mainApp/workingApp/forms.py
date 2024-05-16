@@ -37,28 +37,27 @@ class UserSignupForm(forms.ModelForm):
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(
-        label="Email Address", 
+        label="Email Address",
         widget=forms.TextInput(attrs={
-            'placeholder': 'Enter your username', 
+            'placeholder': 'Enter your username',
             'style': 'width: 100%; color: white; background: transparent; border: 1px solid white;'
         })
     )
     password = forms.CharField(
-        label="Password", 
+        label="Password",
         widget=forms.PasswordInput(attrs={
-            'placeholder': 'Enter your password', 
+            'placeholder': 'Enter your password',
             'style': 'width: 100%; color: white; background: transparent; border: 1px solid white;'
         })
     )
+# class AddBookForm(forms.ModelForm):
+#     class Meta:
+#         model = UserProfile
+#         fields = ['book_list']
+#         widgets = {
+#             'book_list': forms.CheckboxSelectMultiple
+#         }
 
-class AddBookForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ['book_list']
-        widgets = {
-            'book_list': forms.CheckboxSelectMultiple
-        }
-
-    def __init__(self, *args, **kwargs):
-        super(AddBookForm, self).__init__(*args, **kwargs)
-        self.fields['book_list'].queryset = Book.objects.filter(available=True)
+#     def __init__(self, *args, **kwargs):
+#         super(AddBookForm, self).__init__(*args, **kwargs)
+#         self.fields['book_list'].queryset = Book.objects.filter(available=True)

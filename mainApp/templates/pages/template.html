@@ -5,42 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Profile</title>
-    <link rel="stylesheet" href="{% static '/css/temolate.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/temolate.css' %}">
 </head>
 <body>
-
-    {# Include header file #}
     {% include 'header.html' %}
     <div class="container-temp">
         <div class="book-profile">
             <div class="book-cover">
-                <img src="" alt="Book Cover" id="imgsrc">
+                <img src="{{ book.image.url }}" alt="Book Cover">
             </div>
             <div class="book-details">
-                <h1 id="title"></h1>
-                <p id="author"></p>
-                <p id="details"></p>
+                <h1>{{ book.title }}</h1>
+                <p>{{ book.author }}</p>
+                <p>{{ book.details }}</p>
             </div>
         </div>
     </div>
-
     {% include 'footer.html' %}
-
-
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    let cardData = JSON.parse(sessionStorage.getItem('selectedCard'));
-    document.getElementById('title').textContent = cardData.title;
-    document.getElementById('author').textContent = cardData.author;
-    document.getElementById('imgsrc').src = cardData.imageUrl;
-    document.getElementById('details').textContent = cardData.description;
-});
-
-    </script>
-
-
-
 </body>
 </html>

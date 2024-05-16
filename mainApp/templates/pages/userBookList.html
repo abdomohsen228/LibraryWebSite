@@ -23,10 +23,10 @@
                     <h2>Borrowed Books</h2>
                     <ul>
                         <div class="holder">
-                    {% for books in book%}
-                     <div class="imgs">
+                    {% for book in books %}
+                    <div class="imgs">
                             <li>{{book.title}}</li>
-                            <img height="100" src="{{book.image}}" alt="">
+                            <img height="100" src="{{ book.image.url }}" alt="">
                         </div>
                         {%endfor%}
                                 </div>

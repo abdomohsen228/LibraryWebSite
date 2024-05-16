@@ -20,7 +20,7 @@
     <div class="content-all">
         <h2>Choose a book to borrow</h2>
         <br>
-        <form id="borrowForm" method="post" action="{% url 'userBorrowBook' %}"> <!-- Update action to the correct url -->
+        <form id="borrowForm" method="post" action="{% url 'userBorrowBook' %}">
             {% csrf_token %}
             <div class="borrow">
                 <label for="borrow">Book name:</label>
@@ -31,23 +31,20 @@
                     {% endfor %}
                 </select>
             </div>
-            <br>
-            <br>
-            <br>
+            <br><br><br>
             <div class="borrow-btn">
                 <input style="left: 50%; transform: translate(-50%); position: relative; border-radius: 8px; border: 1px solid rgb(17, 12, 61); width: fit-content;" type="submit" value="Borrow">
             </div>
         </form>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br>
         <center>
+            {% if error %}
+            <h2><font color="red">{{ error }}</font></h2>
+            <br><br><br>
+            {% endif %}
             <h2><font color="red">--WARNING--</font></h2>
-            <br>
-            <br>
-            <br>
-            <h3>unavailable books cannot be borrowed</h3>
+            <br><br><br>
+            <h3>Unavailable books cannot be borrowed</h3>
         </center>
     </div>
 </div>

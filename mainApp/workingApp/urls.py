@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import user_login 
 from .views import user_signup  
+from .views import ajax_search_books
 
 urlpatterns=[
     path('User_Home/',views.User_Home,name='User_Home'),
@@ -14,5 +15,9 @@ urlpatterns=[
     path('adminDeleteBooks/',views.adminDeleteBooks,name='adminDeleteBooks'),
     path('adminEditBooks/',views.adminEditBooks,name='adminEditBooks'),
     path('login/', user_login, name='login'),  # The URL name can remain the same
-    path('SignUp/', user_signup, name='signup'), 
+    path('SignUp/', user_signup, name='signup'),
+    path('book/<int:book_id>/', views.template, name='template'),
+    path('ajax/search_books/', ajax_search_books, name='ajax_search_books')
+
+
 ]
