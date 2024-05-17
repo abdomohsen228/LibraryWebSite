@@ -40,16 +40,7 @@ ul{
 }
 /* End Global Rules */
 
-body{
-  background-image: url("imgs/ryunosuke-kikuno-FKqxZ58bVjU-unsplash.jpg");
-  background-size: cover ;
-  background-repeat:no-repeat ;
-  font-family: "Open Sans", sans-serif;
-  background-color: #F2F5FA;
-  color: #0C0C0D;
-  font-size: 1.2rem;
-  line-height: 12px;
-}
+
 
 header {
   position: absolute;
