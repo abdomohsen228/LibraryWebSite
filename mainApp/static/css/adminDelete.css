@@ -320,23 +320,48 @@ border-radius: var(--radius-small);
 .navbar .btn {min-width: 80%;}
 .hero-banner{display: none;}
 
-  .button1 {
+.buttons{
+  display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+.button1 {
   display: block;
-  padding: 10px 10px;
+  padding: 10px;
   background-color: #03045e;
   color: white;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-margin: 10PX auto;
 width: fit-content;
 }
-
+.button2 {
+  display: block;
+  background-color: #03045e;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+width: fit-content;
+padding: 10px;
+}
 .button1:hover {
   background-color: #ff884b;
   color: white;
   text-decoration: none;
 }
+.button2:hover {
+  background-color: #ff884b;
+  color: white;
+  text-decoration: none;
+}
+
+.button2:hover {
+  background-color: #ff884b;
+  color: white;
+  text-decoration: none;
+}
+
 
 .hero {
 position: relative;
@@ -346,7 +371,7 @@ color: var(--neutral-90);
 padding-block: 130px 60px;
 overflow: hidden;
 isolation: isolate;
-background-image: url(https://manualredeye.com/wp-content/uploads/2023/04/trnava-university-BEEyeib-am8-unsplash-900x600.jpg);
+background-image: #ff884b;
 }
 .hero-title{
 color: var(--neutral-100);

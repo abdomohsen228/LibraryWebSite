@@ -11,9 +11,13 @@ urlpatterns=[
     path('userBorrowBook/',views.userBorrowBook,name='userBorrowBook'),
     path('userSearchBooks/',views.userSearchBooks,name='userSearchBooks'),
     path('userViewList/',views.userViewList,name='userViewList'),
-    path('adminAddBooks/',views.adminAddBooks,name='adminAddBooks'),
-    path('adminDeleteBooks/',views.adminDeleteBooks,name='adminDeleteBooks'),
+    path('adminAddBooks/', views.adminAddBooks, name='adminAddBooks'),
+    path('adminAddBooks/submit/', views.submit_book, name='submit_book'),    
     path('adminEditBooks/',views.adminEditBooks,name='adminEditBooks'),
+
+    path('adminEditBooks/edit/<int:pk>/', views.edit_book, name='edit_book'),
+    path('adminEditBooks/delete/<int:pk>/', views.delete_book, name='delete_book'),
+
     path('login/', user_login, name='login'),  # The URL name can remain the same
     path('SignUp/', user_signup, name='signup'),
     path('book/<int:book_id>/', views.template, name='template'),

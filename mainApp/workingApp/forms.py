@@ -50,14 +50,9 @@ class LoginForm(AuthenticationForm):
             'style': 'width: 100%; color: white; background: transparent; border: 1px solid white;'
         })
     )
-# class AddBookForm(forms.ModelForm):
-#     class Meta:
-#         model = UserProfile
-#         fields = ['book_list']
-#         widgets = {
-#             'book_list': forms.CheckboxSelectMultiple
-#         }
 
-#     def __init__(self, *args, **kwargs):
-#         super(AddBookForm, self).__init__(*args, **kwargs)
-#         self.fields['book_list'].queryset = Book.objects.filter(available=True)
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ['title', 'author', 'isbn', 'category', 'details', 'image']

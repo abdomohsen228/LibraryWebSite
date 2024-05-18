@@ -30,6 +30,8 @@ class Book(models.Model):
     id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
+    isbn = models.CharField(max_length=13 ,null=True)
+    pub_date = models.DateField(null=True)
     image = models.ImageField(upload_to='photo', blank=True, null=True)
     details = models.TextField(null=True, blank=True)
     available = models.BooleanField(default=True)
