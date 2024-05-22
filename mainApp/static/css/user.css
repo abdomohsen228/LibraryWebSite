@@ -94,11 +94,13 @@ ul{
 
 
  /* Start Header */
+
 header {
   position: absolute;
   left: 0;
   width: 100%;
   z-index: 2;
+  top: 0;
 }
 header .container {
   display: flex;

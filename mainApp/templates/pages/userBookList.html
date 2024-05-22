@@ -15,9 +15,31 @@
                     <title>user book List</title>
 </head>
 <body>
+
+    <header>    
+        <div class="container">
+            <a href="#" class="logo">
+                <img  style="width: 200px; height: 100px;" decoding="async" src="{% static 'images/amino.png' %}" alt="Logo" />
+            </a>
+            <nav>
+                <i class="fas fa-bars toggle-menu"></i>
+                <ul>
+                    <li><a  href="{% url 'User_Home' %}">Home</a></li>
+            <li><a href="{% url 'userSearchBooks' %}">Search</a></li>
+            <li><a href="{% url 'userViewList' %}">View List</a></li>
+            <li><a href="{% url 'userBorrowBook' %}">Borrow Books</a></li>
+            <li><a href="{% url 'userBookList' %}">Your Book</a></li>
+            <li><a href="{% url  'login' %}">Log out</a></li>
+                </ul>
+                <div class="form">
+                    <i class="fas fa-search"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
   <div class="body-color">
-    {# Include header file #}
-    {% include 'header.html' %}
+
 <div class="overlay"></div>
 <div class="content-all">
                     <h2>Borrowed Books</h2>
@@ -25,7 +47,8 @@
                         <div class="holder">
                     {% for book in books %}
                     <div class="imgs">
-                            <li>{{book.title}}</li>
+                            <li><a href="{% url 'template' book.id %}" class="title-small card-title">{{ book.title }}</a>
+                            </li>
                             <img height="100" src="{{ book.image.url }}" alt="">
                         </div>
                         {%endfor%}
@@ -33,7 +56,6 @@
                                 
                                 
                             <!-- footer -->
-                            {% include 'footer.html' %}
 
                         </body>
                         </html>

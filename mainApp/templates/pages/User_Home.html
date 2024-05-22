@@ -113,7 +113,7 @@
                                 <div class="card-content">
                                     <span class="author">{{book.author}}</span>
                                     <h3 class="title-small card-title">
-                                        <a href="#" class="title-small card-title">{{book.title}}</a>
+                                        <a href="{% url 'template' book.id %}" class="title-small card-title">{{ book.title }}</a>
                                     </h3>
                                     <address class="body-medium card-text">
                                         {{book.details}}                                    
