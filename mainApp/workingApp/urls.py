@@ -18,7 +18,7 @@ urlpatterns=[
     path('adminEditBooks/edit/<int:pk>/', views.edit_book, name='edit_book'),
     path('adminEditBooks/delete/<int:pk>/', views.delete_book, name='delete_book'),
 
-    path('login/', user_login, name='login'),  # The URL name can remain the same
+    path('', user_login, name='login'),  # The URL name can remain the same
     path('SignUp/', user_signup, name='signup'),
     path('book/<int:book_id>/', views.template, name='template'),
     
