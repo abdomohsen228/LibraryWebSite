@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    userPhoto=models.ImageField(upload_to='photo', blank=True, null=True)
     is_admin = models.BooleanField(default=False)
     book_list = models.ManyToManyField('Book', blank=True)
 

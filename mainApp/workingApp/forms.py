@@ -56,3 +56,7 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ['title', 'author', 'isbn', 'category', 'details', 'image']
+
+
+class ReturnBookForm(forms.Form):
+    book_id = forms.IntegerField(widget=forms.HiddenInput())

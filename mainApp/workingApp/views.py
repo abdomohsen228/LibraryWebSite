@@ -45,15 +45,27 @@ def template(request):
     return render(request, 'pages/template.html')
 
 def userBookList(request):
-    # Get the UserProfile of the logged-in user
     user_profile = UserProfile.objects.get(user=request.user)
-    # Filter books associated with this user's profile
     books = user_profile.book_list.all()
 
     context = {
         'books': books,
+        'user_profile': user_profile,
+        'user': request.user,
     }
     return render(request, 'pages/userBookList.html', context)
+
+def return_book(request):
+    if request.method == 'POST':
+        book_id = request.POST.get('book_id')
+        if book_id:
+            book = get_object_or_404(Book, id=book_id)
+            user_profile = UserProfile.objects.get(user=request.user)
+            if book in user_profile.book_list.all():
+                user_profile.book_list.remove(book)
+                user_profile.save()
+                return redirect('userBookList')
+    return redirect('userBookList')
 
 def userBorrowBook(request):
     if request.method == 'POST':
@@ -120,6 +132,7 @@ def template(request, book_id):
 def userViewList(request):
     context={
         'books': Book.objects.all(),
+
     }
     return render(request, 'pages/userViewList.html',context)
 

@@ -21,7 +21,8 @@ urlpatterns=[
     path('', user_login, name='login'),  # The URL name can remain the same
     path('SignUp/', user_signup, name='signup'),
     path('book/<int:book_id>/', views.template, name='template'),
-    
+    path('return-book/', views.return_book, name='return_book'),
+
     path('ajax/search_books/', ajax_search_books, name='ajax_search_books')
 
 
