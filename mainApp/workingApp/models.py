@@ -14,7 +14,7 @@ class UserProfile(models.Model):
     is_admin = models.BooleanField(default=False)
     book_list = models.ManyToManyField('Book', blank=True)
 
-    def __str__(self):
+    def str(self):
         return self.user.username
 
 
