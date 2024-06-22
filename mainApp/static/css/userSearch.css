@@ -413,13 +413,14 @@ transition: var(--transition-duration-quick) var(--transition-easing-quick);
    justify-content: space-between;
 }
 .card{
-  background-color:rgb(202, 216, 199);
+  background-color: rgb(202, 216, 199);
   align-items: center;
   height: 600px;
-  width: 300px;
+  width: 340px;
   border-radius: 25px;
   justify-content: center;
-  overflow: hidden;
+  padding: 20px;
+  margin: 20px;
 }
 
 .card-banner{position: relative;}

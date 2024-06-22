@@ -115,8 +115,30 @@ header nav .form i {
   right: 0;
 }
 /* End Header */
+.card-content {
+        overflow: auto;
+        position: absolute;
+        max-width: 330px;
+        max-height: 245px;
+        }
+.card-content .author {
+        text-align: center;
+        font-size: larger;
+        color: black;       
+        } 
+.card{
+        background-color: rgb(202, 216, 199);
+        align-items: center;
+        height: 600px;
+        width: 340px;
+        border-radius: 25px;
+        justify-content: center;
+        padding: 20px;
+        margin: 20px;
+        }
 
-            </style>
+
+</style>
 </head>
 <body style="height: 500px;">
     <div class="body-color">
@@ -131,9 +153,8 @@ header nav .form i {
                     <ul>
                         <li><a  href="{% url 'User_Home' %}">Home</a></li>
                 <li><a href="{% url 'userSearchBooks' %}">Search</a></li>
-                <li><a href="{% url 'userViewList' %}">View List</a></li>
                 <li><a href="{% url 'userBorrowBook' %}">Borrow Books</a></li>
-                <li><a href="{% url 'userBookList' %}">Your Book</a></li>
+                <li><a href="{% url 'userBookList' %}">Profile</a></li>
                 <li><a href="{% url  'login' %}">Log out</a></li>
                     </ul>
                     <div class="form">
