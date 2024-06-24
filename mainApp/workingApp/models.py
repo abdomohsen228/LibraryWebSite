@@ -27,6 +27,7 @@ class Book(models.Model):
         ('SCIENCE', 'Science'),
         ('HISTORY', 'History'),
         ('BIOGRAPHY', 'Biography'),
+        ('REKA', 'Reka'),
     )
     id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=200)
