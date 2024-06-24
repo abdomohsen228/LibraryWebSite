@@ -116,7 +116,7 @@ def ajax_search_books(request):
             'title': book.title,
             'author': book.author,
             'details': book.details,
-            'image': book.image.url  # Add the image URL
+            'image': book.image.url  
         })
     
     return JsonResponse({'books': results})

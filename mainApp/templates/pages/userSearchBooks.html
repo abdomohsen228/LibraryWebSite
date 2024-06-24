@@ -254,7 +254,7 @@ header nav .form i {
     $(document).ready(function() {
         $('#searchInput').on('keyup', function() {
             var query = $(this).val();
-            console.log('Keyup event triggered, query:', query);  // Debugging line
+            console.log('Keyup event triggered, query:', query);  
 
             $.ajax({
                 url: '{% url "ajax_search_books" %}',
@@ -263,7 +263,7 @@ header nav .form i {
                 },
                 dataType: 'json',
                 success: function(data) {
-                    console.log('Data received:', data);  // Debugging line
+                    console.log('Data received:', data);  
                     $('#card-container').empty();
 
                     for (var i = 0; i < data.books.length; i++) {
@@ -289,8 +289,8 @@ header nav .form i {
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('AJAX error:', status, error);  // Debugging line
-                    console.log('XHR:', xhr.responseText);  // Full error response for debugging
+                    console.error('AJAX error:', status, error); 
+                    console.log('XHR:', xhr.responseText);  
                 }
             });
         });
